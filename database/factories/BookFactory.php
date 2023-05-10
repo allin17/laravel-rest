@@ -17,7 +17,12 @@ class BookFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'title' => fake()->name(),
+            'slug' => fake()->company(),
+            'author' => fake()->name(),
+            'description' => fake()->text(),
+            'rating' => fake()->numberBetween(0, 5),
+            'cover' => "https://img.freepik.com/free-vector/abstract-elegant-winter-book-cover_23-2148798745.jpg?w=2000"
         ];
     }
 }

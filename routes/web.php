@@ -8,6 +8,9 @@ use App\Http\Livewire\Auth\Passwords\Email;
 use App\Http\Livewire\Auth\Passwords\Reset;
 use App\Http\Livewire\Auth\Register;
 use App\Http\Livewire\Auth\Verify;
+use App\Http\Livewire\BookComponent;
+use App\Http\Livewire\BooksComponent;
+use App\Http\Livewire\HomeComponent;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,7 +24,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'welcome')->name('home');
+Route::get('/', HomeComponent::class)->name('home');
+
+Route::get('/books', BooksComponent::class)->name('books');
+Route::get('/books/{id}', BookComponent::class)->name('book');
 
 Route::middleware('guest')->group(function () {
     Route::get('login', Login::class)

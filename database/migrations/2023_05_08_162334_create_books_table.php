@@ -19,6 +19,7 @@ return new class extends Migration
             $table->text('description');
             $table->integer('rating');
             $table->string('cover');
+            $table->foreignId('category_id');
             $table->timestamps();
         });
     }
