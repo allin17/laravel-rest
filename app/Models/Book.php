@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Book extends Model
 {
     use HasFactory;
+
+    function category() {
+        return $this->hasOne('Category');
+    }
 }
