@@ -15,6 +15,6 @@ class Book extends Model
     ];
 
     function category() {
-        return $this->hasOne('Category');
+        return $this->belongsTo('Category');
     }
 }

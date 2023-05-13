@@ -1,14 +1,8 @@
-<style>
-    * {
-        max-width: 1200px;
-        text-align: center;
-    }
-</style>
-<div x-data="show: false">
+<div>
     <div class="mb-20">
         <h1>Home component</h1>
 
-        @if($user->isWorker())
+        @if(auth()->user()->isWorker())
             <a class="" href="/workers">All Workers</a>
         @endif
         @if($user)
@@ -19,26 +13,27 @@
         @endif
 
     </div>
-    {{-- If you look to others for fulfillment, you will never truly be fulfilled. --}}
+
     <div class="flex">
-        <nav class="bg-blue-700">
+        <div class="bg-blue-700">
             <h2 class="text-gray-100">CATEGORIES</h2>
-            @if($user->isWorker())
+            @if(auth()->user()->isWorker())
             <a href="/categories/create" class="bg-white hover:bg-sky-100 rounded p-2">Create new category</a>
             @endif
             @foreach($cats as $cat)
-                <a href="">
+
                     <h3 class="mb-15 m-10 bg-white rounded">
                         {{$cat->title}}
                     </h3>
+                @if(auth()->user()->isWorker())
                     <a href="/categories/{{$cat->id}}/edit">Edit</a>
                     <button wire:click="deleteCategory({{$cat->id}})" class="bg-red-500 hover:bg-red-700 rounded p-2">Delete</button>
-                </a>
+                @endif
             @endforeach
-        </nav>
+        </div>
         <article>
 
-            @livewire('books-component', [
+            @livewire('books.books-component', [
                 'user'=>$user
             ])
         </article>

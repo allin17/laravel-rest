@@ -2,18 +2,17 @@
 
 use App\Http\Controllers\Auth\EmailVerificationController;
 use App\Http\Controllers\Auth\LogoutController;
-use App\Http\Controllers\CategoryController;
 use App\Http\Livewire\Auth\Login;
 use App\Http\Livewire\Auth\Passwords\Confirm;
 use App\Http\Livewire\Auth\Passwords\Email;
 use App\Http\Livewire\Auth\Passwords\Reset;
 use App\Http\Livewire\Auth\Register;
 use App\Http\Livewire\Auth\Verify;
-use App\Http\Livewire\BookComponent;
-use App\Http\Livewire\BooksComponent;
-use App\Http\Livewire\CreateBook;
-use App\Http\Livewire\CreateCategory;
-use App\Http\Livewire\HomeComponent;
+use App\Http\Livewire\Books\BookComponent;
+use App\Http\Livewire\Books\BooksComponent;
+use App\Http\Livewire\Books\CreateBook;
+use App\Http\Livewire\Categories\CreateCategory;
+use App\Http\Livewire\Components\HomeComponent;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,18 +29,19 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', HomeComponent::class)->name('home');
 
 Route::get('categories/create', CreateCategory::class);
-Route::get('categories/{id}/edit', \App\Http\Livewire\EditBookCategory::class);
-Route::resource('categories', CategoryController::class);
+Route::get('categories/{id}/edit', \App\Http\Livewire\Categories\EditBookCategory::class);
+//Route::resource('categories', CategoryController::class);
 
-Route::get('/books/{id}/edit', \App\Http\Livewire\EditBookComponent::class)->name('edit-book');
+Route::get('/books/{id}/edit', \App\Http\Livewire\Books\EditBookComponent::class)->name('edit-book');
 Route::get('/books/create', CreateBook::class)->name('create-book');
 Route::get('/books', BooksComponent::class)->name('books'); //TODO
 Route::get('/books/{id}', BookComponent::class)->name('book');
 //Route::resource('books', \App\Http\Controllers\BookController::class);
 
 
-Route::get('/workers', \App\Http\Livewire\WorkersList::class)->name('workers');
-Route::get('/workers/create', \App\Http\Livewire\CreateWorker::class)->name('create-worker');
+Route::get('/workers', \App\Http\Livewire\Workers\WorkersList::class)->name('workers');
+Route::get('/workers/{id}/edit', \App\Http\Livewire\Workers\EditWorker::class)->name('edit-worker');
+Route::get('/workers/create', \App\Http\Livewire\Workers\CreateWorker::class)->name('create-worker');
 
 Route::middleware('guest')->group(function () {
     Route::get('login', Login::class)

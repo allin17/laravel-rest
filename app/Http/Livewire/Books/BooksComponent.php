@@ -1,14 +1,12 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Books;
 
 use App\Models\Book;
 use Livewire\Component;
 
 class BooksComponent extends Component
 {
-    public $user;
-
     public function deleteBook($id) {
         Book::destroy($id);
     }

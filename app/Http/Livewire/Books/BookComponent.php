@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Books;
 
 use App\Models\Book;
-use Livewire\Component;
 use Illuminate\Http\Request;
+use Livewire\Component;
 
 class BookComponent extends Component
 {
