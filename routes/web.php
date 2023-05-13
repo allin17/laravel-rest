@@ -11,6 +11,7 @@ use App\Http\Livewire\Auth\Register;
 use App\Http\Livewire\Auth\Verify;
 use App\Http\Livewire\BookComponent;
 use App\Http\Livewire\BooksComponent;
+use App\Http\Livewire\CreateBook;
 use App\Http\Livewire\CreateCategory;
 use App\Http\Livewire\HomeComponent;
 use Illuminate\Support\Facades\Route;
@@ -25,17 +26,22 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//Route::get('/logout', Login::class);
 Route::get('/', HomeComponent::class)->name('home');
 
-Route::resource('categories', CategoryController::class);
 Route::get('categories/create', CreateCategory::class);
+Route::get('categories/{id}/edit', \App\Http\Livewire\EditBookCategory::class);
+Route::resource('categories', CategoryController::class);
 
-
-Route::get('/books', BooksComponent::class)->name('books');
+Route::get('/books/{id}/edit', \App\Http\Livewire\EditBookComponent::class)->name('edit-book');
+Route::get('/books/create', CreateBook::class)->name('create-book');
+Route::get('/books', BooksComponent::class)->name('books'); //TODO
 Route::get('/books/{id}', BookComponent::class)->name('book');
+//Route::resource('books', \App\Http\Controllers\BookController::class);
+
 
 Route::get('/workers', \App\Http\Livewire\WorkersList::class)->name('workers');
+Route::get('/workers/create', \App\Http\Livewire\CreateWorker::class)->name('create-worker');
 
 Route::middleware('guest')->group(function () {
     Route::get('login', Login::class)
@@ -65,6 +71,6 @@ Route::middleware('auth')->group(function () {
         ->middleware('signed')
         ->name('verification.verify');
 
-    Route::post('logout', LogoutController::class)
+    Route::get('logout', LogoutController::class)
         ->name('logout');
 });

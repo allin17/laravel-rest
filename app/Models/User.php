@@ -20,6 +20,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role_id'
     ];
 
     /**
@@ -47,6 +48,9 @@ class User extends Authenticatable
 
     public function isWorker(): bool
     {
+        if(!$this->role) {
+            return false;
+        }
         return $this->role->name == 'worker';
     }
 }

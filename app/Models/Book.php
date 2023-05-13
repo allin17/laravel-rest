@@ -9,6 +9,11 @@ class Book extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'title', 'slug', 'author', 'rating', 'description',
+        'avatar'
+    ];
+
     function category() {
         return $this->hasOne('Category');
     }

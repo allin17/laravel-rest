@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Auth;
 
 use App\Models\Book;
+use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
@@ -19,7 +20,7 @@ class Login extends Component
     public $remember = false;
 
     protected $rules = [
-        'email' => ['required', 'email'],
+        'email' => ['required'],
         'password' => ['required'],
     ];
 
@@ -33,6 +34,8 @@ class Login extends Component
             return;
         }
 
+        //$user = User::where('email', $this->email);
+        //Auth::login($user);
         return redirect()->intended(route('home'));
     }
 
