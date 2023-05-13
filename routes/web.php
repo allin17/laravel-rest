@@ -29,7 +29,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', HomeComponent::class)->name('home');
 
 Route::get('categories/create', CreateCategory::class);
-Route::get('categories/{id}/edit', \App\Http\Livewire\Categories\EditBookCategory::class);
+Route::get('categories/{id}/edit', \App\Http\Livewire\Categories\EditBookCategory::class)->name('edit-category');
 //Route::resource('categories', CategoryController::class);
 
 Route::get('/books/{id}/edit', \App\Http\Livewire\Books\EditBookComponent::class)->name('edit-book');

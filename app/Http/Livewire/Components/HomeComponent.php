@@ -12,6 +12,7 @@ class HomeComponent extends Component
     {
         Category::destroy($id);
     }
+
     public function render()
     {
         $cats = Category::all();

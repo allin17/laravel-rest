@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Workers;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
 
 class CreateWorker extends Component
@@ -28,7 +29,9 @@ class CreateWorker extends Component
             'password' => Hash::make($this->password),
             'role_id' => 1
         ]);
-        return redirect()->intended(route('workers', ['message' => 'Created!']));
+
+       // Mail::to(auth()->user()->email)->send(new \App\Mail\CreateWorker($this->email));
+        return redirect()->intended(route('workers', ['message' => 'Created!']))->with('status', 'Worker added successfully!');
     }
 
     public function render()
