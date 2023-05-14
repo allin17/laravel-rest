@@ -18,7 +18,7 @@
             <h2>{{$worker->name}}</h2>
             <p>email: {{$worker->email}}</p>
             <a href="/workers/{{$worker->id}}/edit" class="ml-5 bg-sky-500 hover:bg-sky-700 rounded p-2">Edit worker</a>
-            <button wire:click="delete({{$worker->id}})" class="ml-5 bg-red-500 hover:bg-red-700 rounded p-2">Delete worker</button>
+            <button wire:click="deleteWorker({{$worker->id}})" class="ml-5 bg-red-500 hover:bg-red-700 rounded p-2">Delete worker</button>
         </section>
 
     @endforeach

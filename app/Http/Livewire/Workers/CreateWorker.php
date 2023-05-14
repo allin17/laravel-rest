@@ -30,7 +30,7 @@ class CreateWorker extends Component
             'role_id' => 1
         ]);
 
-       // Mail::to(auth()->user()->email)->send(new \App\Mail\CreateWorker($this->email));
+       Mail::to("testlibrary@teml.net")->send(new \App\Mail\CreateWorker($this->name));
         return redirect()->intended(route('workers', ['message' => 'Created!']))->with('status', 'Worker added successfully!');
     }
 

@@ -3,16 +3,43 @@
 namespace App\Http\Livewire\Books;
 
 use App\Models\Book;
+use App\Models\Comment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class BookComponent extends Component
 {
-    public function render(Request $req)
+    public $commentText= '';
+    public $bookId;
+
+    protected $rules = [
+        'commentText' => 'required'
+    ];
+
+    public function mount($id) {
+        $this->bookId = $id;
+    }
+    public function addComment($book_id)
     {
-        $book = Book::findOrFail($req->id);
+        Comment::create([
+            'text' => $this->commentText,
+            'user_id' => Auth::user()->id,
+            'book_id' => $book_id
+        ]);
+    }
+
+    public function deleteComment($id)
+    {
+        Comment::destroy($id);
+    }
+    public function render()
+    {
+        $book = Book::findOrFail($this->bookId);
+        $comments = Comment::where('book_id', $this->bookId)->get();
         return view('livewire.book-component' , [
-            'book' => $book
+            'book' => $book,
+            'comments' => $comments
         ]);
     }
 }

@@ -19,9 +19,6 @@
         @endif
     </div>
 
-    <template>
-        <div x-if></div>
-    </template>
     <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
         <div class="px-4 py-8 bg-white shadow sm:rounded-lg sm:px-10">
             <form wire:submit.prevent="authenticate">

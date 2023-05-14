@@ -12,6 +12,7 @@ use App\Http\Livewire\Books\BookComponent;
 use App\Http\Livewire\Books\BooksComponent;
 use App\Http\Livewire\Books\CreateBook;
 use App\Http\Livewire\Categories\CreateCategory;
+use App\Http\Livewire\Categories\EditBookCategory;
 use App\Http\Livewire\Components\HomeComponent;
 use Illuminate\Support\Facades\Route;
 
@@ -26,10 +27,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 //Route::get('/logout', Login::class);
-Route::get('/', HomeComponent::class)->name('home');
 
-Route::get('categories/create', CreateCategory::class);
-Route::get('categories/{id}/edit', \App\Http\Livewire\Categories\EditBookCategory::class)->name('edit-category');
+Route::get('/categories/create', CreateCategory::class);
+Route::get('/categories/{id}/edit', EditBookCategory::class)->name('edit-category');
 //Route::resource('categories', CategoryController::class);
 
 Route::get('/books/{id}/edit', \App\Http\Livewire\Books\EditBookComponent::class)->name('edit-book');
@@ -58,6 +58,8 @@ Route::get('password/reset/{token}', Reset::class)
     ->name('password.reset');
 
 Route::middleware('auth')->group(function () {
+    Route::get('/', HomeComponent::class)->name('home');
+
     Route::get('email/verify', Verify::class)
         ->middleware('throttle:6,1')
         ->name('verification.notice');
