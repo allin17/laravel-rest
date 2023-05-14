@@ -16,6 +16,7 @@ class CreateBook extends Component
     public $author = 'sasa';
     public $cover;
     public $rating = 1;
+    public $category = 1;
 
     public function createBook()
     {
@@ -27,7 +28,7 @@ class CreateBook extends Component
             'author' => $this->author,
             'cover' => $coverPath,
             'rating' => $this->rating,
-            'category_id' => 4
+            'category_id' => $this->category
         ]);
         return redirect('/')->with('message', 'Book created!');
     }

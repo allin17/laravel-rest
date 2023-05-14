@@ -1,9 +1,4 @@
 <div class="h-screen flex items-center flex-col justify-center">
-    {{-- if worker role show buttons --}}
-    {{--<section>
-        <button class="mb-10 p-2 border-4 bg-blue-400 border-blue-100 hover:text-amber-50">Edit book</button>
-        <button class="mb-10 p-2 border-4 bg-red-400 border-blue-100 hover:text-amber-50">Delete book</button>
-    </section>--}}
     <h2>Book: {{$book->title}}</h2>
     @if(substr($book->cover, 0, 4)!='http')
         <img src="{{asset('storage/'.substr($book->cover, 7))}}" alt="cover" height="200px" width="200px">

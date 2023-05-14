@@ -19,7 +19,7 @@ class HomeComponent extends Component
         $cats = Category::all();
         $user = Auth::user();
 
-        return view('livewire.home-component', [
+        return view('livewire.components.home-component', [
             'cats' => $cats,
             'user' => $user
         ]);
