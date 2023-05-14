@@ -17,7 +17,11 @@
                 <p>{{$book->author}}</p>
                 <i>{{$book->description}}</i>
                 <p>{{$book->rating}}</p>
-                <img src="{{$book->cover}}" alt="cover" height="100px" width="100px">
+                    @if(substr($book->cover, 0, 4)!='http')
+                        <img src="{{asset('storage/'.substr($book->cover, 7))}}" alt="cover" height="100px" width="100px">
+                    @else
+                        <img src="https://img.freepik.com/free-vector/abstract-elegant-winter-book-cover_23-2148798745.jpg?w=2000" alt="cover" height="100px" width="100px">
+                    @endif
 
                 </a>
                 @if(auth()->user()->isWorker())

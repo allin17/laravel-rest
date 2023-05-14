@@ -5,7 +5,11 @@
         <button class="mb-10 p-2 border-4 bg-red-400 border-blue-100 hover:text-amber-50">Delete book</button>
     </section>--}}
     <h2>Book: {{$book->title}}</h2>
-    <img src="{{$book -> cover}}" alt="cover" height="200px" width="200px">
+    @if(substr($book->cover, 0, 4)!='http')
+        <img src="{{asset('storage/'.substr($book->cover, 7))}}" alt="cover" height="200px" width="200px">
+    @else
+        <img src="https://img.freepik.com/free-vector/abstract-elegant-winter-book-cover_23-2148798745.jpg?w=2000" alt="cover" height="200px" width="200px">
+    @endif
 
     <div>Author: {{$book->author}}</div>
     <div>Rating: {{$book->rating}} of 5</div>

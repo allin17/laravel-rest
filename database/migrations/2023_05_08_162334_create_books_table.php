@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('author');
             $table->text('description');
             $table->integer('rating');
-            $table->string('cover');
-            $table->foreignId('category_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->string('cover')->nullable();
+            $table->foreignId('category_id')->nullable()->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
     }

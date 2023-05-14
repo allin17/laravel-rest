@@ -13,6 +13,7 @@ class BooksComponent extends Component
     public function render()
     {
         $books = Book::paginate(10);
+
         return view('livewire.book.books-component', [
             'books' => $books
         ]);

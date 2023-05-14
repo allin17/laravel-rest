@@ -4,25 +4,30 @@ namespace App\Http\Livewire\Books;
 
 use App\Models\Book;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class CreateBook extends Component
 {
-    public $title = '';
-    public $slug = '';
-    public $description = '';
-    public $author = '';
-    public $cover = '';
-    public $rating = 0;
+    use WithFileUploads;
+
+    public $title = 'saa';
+    public $slug = 'sasa';
+    public $description = 'sasasasaasas';
+    public $author = 'sasa';
+    public $cover;
+    public $rating = 1;
 
     public function createBook()
     {
+        $coverPath = $this->cover->store('public/covers');
         Book::create([
             'title' => $this->title,
             'slug' => $this->slug,
             'description' => $this->description,
             'author' => $this->author,
-            'cover' => $this->cover,
-            'rating' => $this->rating
+            'cover' => $coverPath,
+            'rating' => $this->rating,
+            'category_id' => 4
         ]);
         return redirect('/')->with('message', 'Book created!');
     }

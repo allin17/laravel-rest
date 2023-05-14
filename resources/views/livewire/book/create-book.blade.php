@@ -60,7 +60,9 @@
 
                 <div class="mt-1 rounded-md shadow-sm">
                     <h2>Cover: </h2>
-                    <input type="file">
+                    <input type="file" wire:model="cover">
+
+                    @error('cover') <span class="bg-accent-red-500">{{$message}}</span>@enderror
                 </div>
 
                 <div class="mt-6">
