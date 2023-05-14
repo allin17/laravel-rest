@@ -11,8 +11,8 @@ use App\Http\Livewire\Auth\Verify;
 use App\Http\Livewire\Books\BookComponent;
 use App\Http\Livewire\Books\BooksComponent;
 use App\Http\Livewire\Books\CreateBook;
-use App\Http\Livewire\Categories\CreateCategory;
-use App\Http\Livewire\Categories\EditBookCategory;
+use App\Http\Livewire\BookCategories\CreateBookCategory;
+use App\Http\Livewire\BookCategories\EditBookCategory;
 use App\Http\Livewire\Components\HomeComponent;
 use Illuminate\Support\Facades\Route;
 
@@ -28,7 +28,7 @@ use Illuminate\Support\Facades\Route;
 */
 //Route::get('/logout', Login::class);
 
-Route::get('/categories/create', CreateCategory::class);
+Route::get('/categories/create', CreateBookCategory::class);
 Route::get('/categories/{id}/edit', EditBookCategory::class)->name('edit-category');
 //Route::resource('categories', CategoryController::class);
 

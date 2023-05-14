@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Livewire\Categories;
+namespace App\Http\Livewire\BookCategories;
 
 use App\Models\Category;
 use Livewire\Component;
 
-class CreateCategory extends Component
+class CreateBookCategory extends Component
 {
     public $title = '';
     public $slug = '';
@@ -15,10 +15,10 @@ class CreateCategory extends Component
             'title' => $this->title,
             'slug' => $this->slug
         ]);
-        return $this->redirect('/');
+        return $this->redirect('/')->with('message', 'Category created!');
     }
     public function render()
     {
-        return view('livewire.create-category');
+        return view('livewire.bookCategory.create-book-category')->extends('layouts.auth');
     }
 }

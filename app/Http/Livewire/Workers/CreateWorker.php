@@ -31,11 +31,11 @@ class CreateWorker extends Component
         ]);
 
        Mail::to("testlibrary@teml.net")->send(new \App\Mail\CreateWorker($this->name));
-        return redirect()->intended(route('workers', ['message' => 'Created!']))->with('status', 'Worker added successfully!');
+        return redirect()->intended(route('workers'))->with('status', 'Worker added successfully!');
     }
 
     public function render()
     {
-        return view('livewire.create-worker');
+        return view('livewire.worker.create-worker');
     }
 }

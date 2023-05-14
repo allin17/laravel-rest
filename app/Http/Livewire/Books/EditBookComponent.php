@@ -13,7 +13,7 @@ class EditBookComponent extends Component
     {
         $book = Book::findOrFail($req->id);
         $title = $book->title;
-        return view('livewire.edit-book-component', [
+        return view('livewire.book.edit-book-component', [
             'book' => $book,
             'title' => $title
         ]);

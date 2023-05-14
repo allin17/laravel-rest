@@ -37,7 +37,7 @@ class BookComponent extends Component
     {
         $book = Book::findOrFail($this->bookId);
         $comments = Comment::where('book_id', $this->bookId)->get();
-        return view('livewire.book-component' , [
+        return view('livewire.book.book-component' , [
             'book' => $book,
             'comments' => $comments
         ]);

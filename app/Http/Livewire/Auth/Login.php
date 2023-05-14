@@ -34,8 +34,6 @@ class Login extends Component
             return;
         }
 
-        //$user = User::where('email', $this->email);
-        //Auth::login($user);
         return redirect()->intended(route('home'));
     }
 

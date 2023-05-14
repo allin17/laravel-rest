@@ -24,7 +24,7 @@ class WorkersList extends Component
                 $workers[] = $user;
             }
         }
-        return view('livewire.workers-list', [
+        return view('livewire.worker.workers-list', [
             'workers' => $workers
         ]);
     }

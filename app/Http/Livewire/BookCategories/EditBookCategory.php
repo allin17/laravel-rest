@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Categories;
+namespace App\Http\Livewire\BookCategories;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -32,12 +32,12 @@ class EditBookCategory extends Component
             'title' => $this->title,
             'slug' => $this->slug
         ]);
-       return $this->redirect('/');
+       return redirect('/');
     }
     public function render()
     {
         $cat = Category::findOrFail($this->categoryId);
-        return view('livewire.edit-book-category', [
+        return view('livewire.bookCategory.edit-book-category', [
             'cat' => $cat
         ])->extends('layouts.auth');
     }
