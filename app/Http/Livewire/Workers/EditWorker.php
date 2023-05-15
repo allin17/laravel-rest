@@ -34,6 +34,9 @@ class EditWorker extends Component
     }
     public function render()
     {
-        return view('livewire.worker.edit-worker');
+        $worker = User::findOrFail($this->workerId);
+        return view('livewire.worker.edit-worker', [
+            'worker' => $worker
+        ]);
     }
 }

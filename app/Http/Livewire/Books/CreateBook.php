@@ -10,10 +10,10 @@ class CreateBook extends Component
 {
     use WithFileUploads;
 
-    public $title = 'saa';
-    public $slug = 'sasa';
-    public $description = 'sasasasaasas';
-    public $author = 'sasa';
+    public $title = '';
+    public $slug = '';
+    public $description = '';
+    public $author = '';
     public $cover;
     public $rating = 1;
     public $category = 1;

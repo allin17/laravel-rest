@@ -85,7 +85,7 @@
 
                 <div class="mt-6">
                     <label for="author" class="block text-sm font-medium text-gray-700 leading-5">
-                        Category
+                        Category id
                     </label>
 
                     <div class="mt-1 rounded-md shadow-sm">

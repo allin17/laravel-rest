@@ -1,8 +1,8 @@
 <div>
     @if($cats)
         @foreach($cats as $cat)
-            <div class="m-2 p-4 border-2 border-amber-50 flex flex-col justify-between gap-4">
-            <h3 class=" bg-white rounded">
+            <div class="m-2 p-4 border-2 border-amber-50 justify-between gap-4">
+            <h3 class=" bg-white rounded p-2 m-2">
                 {{$cat->title}}
             </h3>
             @if(auth()->user()->isWorker())

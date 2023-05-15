@@ -5,7 +5,7 @@
             <form wire:submit.prevent="edit">
                 <div>
                     <label for="name" class="block text-sm font-medium text-gray-700 leading-5">
-                        Name
+                        Name: {{$worker->name}}
                     </label>
 
                     <div class="mt-1 rounded-md shadow-sm">
@@ -19,7 +19,7 @@
 
                 <div class="mt-6">
                     <label for="email" class="block text-sm font-medium text-gray-700 leading-5">
-                        Email address
+                        Email address: {{$worker->email}}
                     </label>
 
                     <div class="mt-1 rounded-md shadow-sm">
@@ -33,7 +33,7 @@
 
                 <div class="mt-6">
                     <label for="password" class="block text-sm font-medium text-gray-700 leading-5">
-                        Password
+                        Password:
                     </label>
 
                     <div class="mt-1 rounded-md shadow-sm">

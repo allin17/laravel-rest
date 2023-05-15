@@ -4,7 +4,7 @@
             <form wire:submit.prevent="updateBook">
                 <div>
                     <label for="title" class="block text-sm font-medium text-gray-700 leading-5">
-                        Title
+                        Title: {{$book->title}}
                     </label>
 
                     <div class="mt-1 rounded-md shadow-sm">
@@ -18,7 +18,7 @@
 
                 <div class="mt-6">
                     <label for="email" class="block text-sm font-medium text-gray-700 leading-5">
-                        Slug
+                        Slug: {{$book->slug}}
                     </label>
 
                     <div class="mt-1 rounded-md shadow-sm">
@@ -32,7 +32,7 @@
 
                 <div class="mt-6">
                     <label for="description" class="block text-sm font-medium text-gray-700 leading-5">
-                        Description
+                        Description: {{$book->description}}
                     </label>
 
                     <div class="mt-1 rounded-md shadow-sm">
@@ -46,7 +46,7 @@
 
                 <div class="mt-6">
                     <label for="author" class="block text-sm font-medium text-gray-700 leading-5">
-                        Author
+                        Author: {{$book->author}}
                     </label>
 
                     <div class="mt-1 rounded-md shadow-sm">
@@ -67,7 +67,7 @@
 
                 <div class="mt-6">
                     <label for="rating" class="block text-sm font-medium text-gray-700 leading-5">
-                        Rating
+                        Rating: {{$book->rating}}
                     </label>
 
                     <select x-model="rating">
@@ -85,7 +85,7 @@
 
                 <div class="mt-6">
                     <label for="author" class="block text-sm font-medium text-gray-700 leading-5">
-                        Category
+                        Category: {{$book->category_id}}
                     </label>
 
                     <div class="mt-1 rounded-md shadow-sm">

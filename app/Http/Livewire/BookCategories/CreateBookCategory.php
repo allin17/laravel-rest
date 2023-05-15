@@ -15,7 +15,7 @@ class CreateBookCategory extends Component
             'title' => $this->title,
             'slug' => $this->slug
         ]);
-        return $this->redirect('/')->with('message', 'Category created!');
+        return redirect('/')->with('message', 'Category created!');
     }
     public function render()
     {
