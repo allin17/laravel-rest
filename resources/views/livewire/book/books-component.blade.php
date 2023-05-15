@@ -1,14 +1,11 @@
-<div>
-    <h1>
-        All Books
-    </h1>{{-- A good traveler has no fixed plans and is not intent upon arriving. --}}
+<div class="flex flex-col">
     @if(auth()->user()->isWorker())
-        <a href="/books/create" class="border-2 border-cyan-400">
+        <a href="/books/create" class="p-3 m-5 bg-blue-400 text-gray-100 border-2 border-cyan-400">
             Create new book
         </a>
     @endif
-    <span></span>
     <ul class="border-4">
+        {{$books->links()}}
         @foreach ($books as $book)
             <li class="border-2 p-5">
                 <h6>category {{$book->category_id}}</h6>

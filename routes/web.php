@@ -8,12 +8,17 @@ use App\Http\Livewire\Auth\Passwords\Email;
 use App\Http\Livewire\Auth\Passwords\Reset;
 use App\Http\Livewire\Auth\Register;
 use App\Http\Livewire\Auth\Verify;
+use App\Http\Livewire\BookCategories\BookCategoryList;
 use App\Http\Livewire\Books\BookComponent;
 use App\Http\Livewire\Books\BooksComponent;
 use App\Http\Livewire\Books\CreateBook;
 use App\Http\Livewire\BookCategories\CreateBookCategory;
 use App\Http\Livewire\BookCategories\EditBookCategory;
+use App\Http\Livewire\Books\EditBookComponent;
 use App\Http\Livewire\Components\HomeComponent;
+use App\Http\Livewire\Workers\CreateWorker;
+use App\Http\Livewire\Workers\EditWorker;
+use App\Http\Livewire\Workers\WorkersList;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,22 +31,17 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//Route::get('/logout', Login::class);
 
+Route::get('/categories', BookCategoryList::class);
 Route::get('/categories/create', CreateBookCategory::class);
 Route::get('/categories/{id}/edit', EditBookCategory::class)->name('edit-category');
-//Route::resource('categories', CategoryController::class);
 
-Route::get('/books/{id}/edit', \App\Http\Livewire\Books\EditBookComponent::class)->name('edit-book');
+Route::get('/books/{id}/edit', EditBookComponent::class)->name('edit-book');
 Route::get('/books/create', CreateBook::class)->name('create-book');
-Route::get('/books', BooksComponent::class)->name('books'); //TODO
-Route::get('/books/{id}', BookComponent::class)->name('book');
-//Route::resource('books', \App\Http\Controllers\BookController::class);
 
-
-Route::get('/workers', \App\Http\Livewire\Workers\WorkersList::class)->name('workers');
-Route::get('/workers/{id}/edit', \App\Http\Livewire\Workers\EditWorker::class)->name('edit-worker');
-Route::get('/workers/create', \App\Http\Livewire\Workers\CreateWorker::class)->name('create-worker');
+Route::get('/workers', WorkersList::class)->name('workers');
+Route::get('/workers/{id}/edit', EditWorker::class)->name('edit-worker');
+Route::get('/workers/create', CreateWorker::class)->name('create-worker');
 
 Route::middleware('guest')->group(function () {
     Route::get('login', Login::class)
@@ -59,6 +59,9 @@ Route::get('password/reset/{token}', Reset::class)
 
 Route::middleware('auth')->group(function () {
     Route::get('/', HomeComponent::class)->name('home');
+
+    Route::get('/books', BooksComponent::class)->name('books');
+    Route::get('/books/{id}', BookComponent::class)->name('book');
 
     Route::get('email/verify', Verify::class)
         ->middleware('throttle:6,1')
