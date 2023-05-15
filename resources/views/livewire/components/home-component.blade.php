@@ -1,6 +1,8 @@
 <div>
     <div>
-        @livewire('components.navigation')
+        @livewire('components.navigation', [
+        'cats' => $cats
+        ])
     </div>
 
     <div class="flex">

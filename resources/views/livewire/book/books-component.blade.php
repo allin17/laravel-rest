@@ -3,6 +3,8 @@
         <a href="/books/create" class="p-3 m-5 bg-blue-400 text-gray-100 border-2 border-cyan-400">
             Create new book
         </a>
+
+
     @endif
     <ul class="border-4">
         {{$books->links()}}

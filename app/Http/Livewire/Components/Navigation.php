@@ -7,6 +7,13 @@ use Livewire\Component;
 
 class Navigation extends Component
 {
+    public $cats;
+
+
+    public function categoryRedirect($cats)
+    {
+        return redirect()->route('categories', ['cats' => $cats]);
+    }
     public function render()
     {
         $user = Auth::user();

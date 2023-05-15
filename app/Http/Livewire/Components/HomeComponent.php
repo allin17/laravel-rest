@@ -8,11 +8,6 @@ use Livewire\Component;
 
 class HomeComponent extends Component
 {
-    public function deleteCategory($id)
-    {
-        Category::destroy($id);
-        return $this->redirect('/');
-    }
 
     public function render()
     {
