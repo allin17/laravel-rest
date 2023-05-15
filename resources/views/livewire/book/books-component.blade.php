@@ -1,4 +1,11 @@
 <div class="flex flex-col">
+
+    @if(substr(url()->current(), -5) == 'books')
+        <div>
+            @livewire('components.navigation')
+        </div>
+    @endif
+
     @if(auth()->user()->isWorker())
         <a href="/books/create" class="p-3 m-5 bg-blue-400 text-gray-100 border-2 border-cyan-400">
             Create new book
@@ -7,6 +14,7 @@
 
     @endif
     <ul class="border-4">
+        <h1>All books</h1>
         {{$books->links()}}
         @foreach ($books as $book)
             <li class="border-2 p-5">
