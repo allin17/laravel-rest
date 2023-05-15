@@ -22,6 +22,15 @@ class EditBookComponent extends Component
     public $category = 1;
     public $bookId;
 
+    protected $rules = [
+        'title' => ['required'],
+        'slug' => ['required'],
+        'description' => ['required'],
+        'author' => ['required'],
+        'cover' => ['required'],
+        'rating' => ['required'],
+        'category' => ['required'],
+    ];
     public function mount($id)
     {
         $this->bookId = $id;
@@ -29,6 +38,7 @@ class EditBookComponent extends Component
 
     public function updateBook()
     {
+        $this->validate();
         $coverPath = $this->cover->store('public/covers');
         Book::where('id', $this->bookId)->update([
             'title' => $this->title,

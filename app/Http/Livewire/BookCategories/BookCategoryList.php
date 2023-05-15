@@ -7,12 +7,13 @@ use Livewire\Component;
 
 class BookCategoryList extends Component
 {
+    public $cats;
     public function deleteCategory($id)
     {
         Category::destroy($id);
         return $this->redirect('/');
     }
-    public $cats;
+
     public function render()
     {
         return view('livewire.bookCategory.book-category-list');

@@ -9,6 +9,7 @@ use Livewire\WithPagination;
 class BooksComponent extends Component
 {
     use WithPagination;
+    public $user;
     public function deleteBook($id) {
         Book::destroy($id);
         $this->resetPage();

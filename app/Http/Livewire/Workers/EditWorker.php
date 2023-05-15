@@ -25,6 +25,7 @@ class EditWorker extends Component
     }
     public function edit()
     {
+        $this->validate();
         User::where('id', $this->workerId)->update([
             'name' => $this->name,
             'email' => $this->email,

@@ -9,10 +9,9 @@ class Navigation extends Component
 {
     public $cats;
 
-
-    public function categoryRedirect($cats)
+    public function categoryRedirect()
     {
-        return redirect()->route('categories', ['cats' => $cats]);
+        return redirect()->route('categories', ['cats' => $this->cats]);
     }
     public function render()
     {

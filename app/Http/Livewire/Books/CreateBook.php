@@ -18,8 +18,19 @@ class CreateBook extends Component
     public $rating = 1;
     public $category = 1;
 
+    protected $rules = [
+        'title' => ['required'],
+        'slug' => ['required'],
+        'description' => ['required'],
+        'author' => ['required'],
+        'cover' => ['required'],
+        'rating' => ['required'],
+        'category' => ['required'],
+    ];
+
     public function createBook()
     {
+        $this->validate();
         $coverPath = $this->cover->store('public/covers');
         Book::create([
             'title' => $this->title,
