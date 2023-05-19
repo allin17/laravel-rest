@@ -11,12 +11,13 @@ class WorkerCreatedNotification extends Notification
 {
     use Queueable;
 
+    protected $worker;
     /**
      * Create a new notification instance.
      */
-    public function __construct()
+    public function __construct($newWorker)
     {
-        //
+        $this->worker = $newWorker;
     }
 
     /**
@@ -38,6 +39,7 @@ class WorkerCreatedNotification extends Notification
             ->subject('Новый сотрудник создан')
             ->greeting('Привет!')
             ->line('Новый сотрудник был создан.')
+            ->line('Его емэйл: '.$this->worker->email)
             ->line('Thank you for using our application!')
             ->action('Просмотреть сотрудников', url('/workers'));
     }

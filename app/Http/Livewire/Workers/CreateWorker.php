@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Workers;
 
+use App\Jobs\SendWorkerCreatedEmail;
 use App\Models\User;
 use App\Notifications\WorkerCreatedNotification;
 use Illuminate\Support\Facades\Hash;
@@ -30,7 +31,8 @@ class CreateWorker extends Component
             'password' => Hash::make($this->password),
             'role_id' => 1
         ]);
-        $newWorker->notify(new WorkerCreatedNotification());
+        SendWorkerCreatedEmail::dispatch($newWorker);
+        //$newWorker->notify(new WorkerCreatedNotification());
 
        //Mail::to("testlibrary@teml.net")->send(new \App\Mail\CreateWorker($this->name));
         return redirect()->intended(route('workers'))->with('status', 'Worker added successfully!');
