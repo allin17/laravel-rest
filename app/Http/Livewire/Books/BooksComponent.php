@@ -10,16 +10,23 @@ class BooksComponent extends Component
 {
     use WithPagination;
     public $user;
+    public $currentUrl;
     public function deleteBook($id) {
         Book::destroy($id);
         $this->resetPage();
+    }
+
+    public function mount() {
+        $this->currentUrl = url()->current();
     }
     public function render()
     {
         $books = Book::paginate(10);
 
+
         return view('livewire.book.books-component', [
-            'books' => $books
+            'books' => $books,
+            'cUrl' =>  $this->currentUrl
         ]);
     }
 }

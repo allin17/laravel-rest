@@ -1,5 +1,5 @@
 <div>
-    @if(substr(url()->current(), -5) == 'books')
+    @if(substr($cUrl, -5) == 'books')
         <div>
             @livewire('components.navigation')
         </div>
