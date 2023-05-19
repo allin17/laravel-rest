@@ -1,4 +1,5 @@
 <div x-data='{show: true}' class="m-20">
+
     {{-- If your happiness depends on money, you will never be happy with yourself. --}}
     <a href="/workers/create" class="bg-sky-500 hover:bg-sky-700 rounded p-2">Create new worker</a>
 
